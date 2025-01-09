@@ -1,8 +1,8 @@
+import { Page404 } from "common/components"
 import { createBrowserRouter } from "react-router-dom"
 import { App } from "../../app/App"
 import { Main } from "../../app/Main"
 import { Login } from "../../features/auth/ui/Login/Login"
-import { Page404 } from "common/components/Page404/Page404"
 
 export const Path = {
   Login: "login",
@@ -28,5 +28,3 @@ export const router = createBrowserRouter([
     ],
   },
 ])
-
-//

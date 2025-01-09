@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ResultCode } from "common/enums"
+import { handleServerAppError, handleServerNetworkError } from "common/utils"
 import { Dispatch } from "redux"
 import { setAppStatus } from "../../../app/appSlice"
 import { clearTasks } from "../../todolists/model/tasksSlice"
 import { clearTodolists } from "../../todolists/model/todolistsSlice"
 import { authApi } from "../api/authAPI"
 import { LoginArgs } from "../api/authAPI.types"
-import { handleServerAppError } from "common/utils/handleServerAppError"
-import { handleServerNetworkError } from "common/utils/handleServerNetworkError"
 
 export const authSlice = createSlice({
-  // name: "auth",
-  name: "authorization",
+  name: "auth",
   initialState: {
     isLoggedIn: false,
     isInitialized: false,
