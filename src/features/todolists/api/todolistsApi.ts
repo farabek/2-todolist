@@ -85,6 +85,7 @@ import { DomainTodolist } from "../model/todolistsSlice"
 export const todolistsApi = createApi({
   // 3
   reducerPath: "todolistsApi",
+  tagTypes: ["Todolist"],
   // 4
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL,
@@ -100,6 +101,7 @@ export const todolistsApi = createApi({
       transformResponse(todolists: Todolist[]): DomainTodolist[] {
         return todolists.map((tl) => ({ ...tl, filter: "all", entityStatus: "idle" }))
       },
+      providesTags: ["Todolist"],
     }),
 
     addTodolist: build.mutation<BaseResponse<{ item: Todolist }>, string>({
@@ -110,6 +112,7 @@ export const todolistsApi = createApi({
           body: { title },
         }
       },
+      invalidatesTags: ["Todolist"],
     }),
 
     removeTodolist: build.mutation<BaseResponse, string>({
@@ -119,6 +122,7 @@ export const todolistsApi = createApi({
           url: `todo-lists/${id}`,
         }
       },
+      invalidatesTags: ["Todolist"],
     }),
 
     updateTodolistTitle: build.mutation<BaseResponse, { id: string; title: string }>({
@@ -131,6 +135,7 @@ export const todolistsApi = createApi({
           },
         }
       },
+      invalidatesTags: ["Todolist"],
     }),
   }),
 })
