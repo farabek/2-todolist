@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-// import { RootState } from "./store"
 
 export type ThemeMode = "dark" | "light"
 export type RequestStatus = "idle" | "loading" | "succeeded" | "failed"
@@ -34,8 +33,6 @@ export const appSlice = createSlice({
   },
 })
 
-// export const { changeTheme, setAppError, setAppStatus } = appSlice.actions
-// export const { selectAppStatus, selectAppError, selectThemeMode } = appSlice.selectors
 export const { changeTheme, setAppError, setAppStatus, setIsLoggedIn } = appSlice.actions
 export const { selectAppStatus, selectAppError, selectThemeMode, selectIsLoggedIn } = appSlice.selectors
 export const appReducer = appSlice.reducer
