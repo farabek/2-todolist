@@ -57,6 +57,7 @@ export const tasksSlice = createSlice({
   },
 })
 
+///////////////////////
 // Thunks
 export const fetchTasksTC = (todolistId: string) => (dispatch: Dispatch) => {
   dispatch(setAppStatus({ status: "loading" }))
