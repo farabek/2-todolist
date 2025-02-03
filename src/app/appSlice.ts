@@ -1,6 +1,6 @@
-import { createSlice, isPending, isFulfilled, isRejected } from "@reduxjs/toolkit"
-import { tasksApi } from "features/todolists/api/tasksApi"
-import { todolistsApi } from "features/todolists/api/todolistsApi"
+import { createSlice, isFulfilled, isPending, isRejected } from "@reduxjs/toolkit"
+import { tasksApi } from "../features/todolists/api/tasksApi"
+import { todolistsApi } from "../features/todolists/api/todolistsApi"
 
 export type ThemeMode = "dark" | "light"
 export type RequestStatus = "idle" | "loading" | "succeeded" | "failed"
@@ -27,12 +27,8 @@ export const appSlice = createSlice({
       state.isLoggedIn = action.payload.isLoggedIn
     }),
   }),
-
   extraReducers: (builder) => {
     builder
-      // .addMatcher(isPending, (state) => {
-      //   state.status = "loading"
-      // })
       .addMatcher(isPending, (state, action) => {
         if (
           todolistsApi.endpoints.getTodolists.matchPending(action) ||
@@ -49,7 +45,6 @@ export const appSlice = createSlice({
         state.status = "failed"
       })
   },
-
   selectors: {
     selectThemeMode: (state) => state.themeMode,
     selectAppStatus: (state) => state.status,

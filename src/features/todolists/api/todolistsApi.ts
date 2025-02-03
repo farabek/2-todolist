@@ -1,13 +1,12 @@
 import { instance } from "common/instance"
 import { BaseResponse } from "common/types"
 import { baseApi } from "../../../app/baseApi"
-import { Todolist } from "./todolistsApi.types"
 import { DomainTodolist } from "../lib/types/types"
+import { Todolist } from "./todolistsApi.types"
 
 export const todolistsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getTodolists: build.query<DomainTodolist[], void>({
-      // query: () => "todo-lists2",
       query: () => "todo-lists",
       transformResponse(todolists: Todolist[]): DomainTodolist[] {
         return todolists.map((tl) => ({ ...tl, filter: "all", entityStatus: "idle" }))

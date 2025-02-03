@@ -14,9 +14,9 @@ export const baseApi = createApi({
 
     handleError(api, result)
 
-    // debugger
     return result
   },
   endpoints: () => ({}),
   tagTypes: ["Todolist", "Task"],
+  // refetchOnReconnect: true,
 })
