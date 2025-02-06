@@ -3,6 +3,7 @@ import { handleError } from "common/utils"
 
 export const baseApi = createApi({
   reducerPath: "todolistsApi",
+  // keepUnusedDataFor: 5,
   baseQuery: async (args, api, extraOptions) => {
     const result = await fetchBaseQuery({
       baseUrl: process.env.REACT_APP_BASE_URL,
@@ -19,4 +20,6 @@ export const baseApi = createApi({
   endpoints: () => ({}),
   tagTypes: ["Todolist", "Task"],
   // refetchOnReconnect: true,
+  // keepUnusedDataFor: 5,
+  // refetchOnFocus: true,
 })

@@ -242,6 +242,9 @@ export const tasksApi = baseApi.injectEndpoints({
           params: { ...args, count: PAGE_SIZE },
         }
       },
+
+      // keepUnusedDataFor: 65,
+
       providesTags: (result, error, { todolistId }) => [{ type: "Task", id: todolistId }],
     }),
     addTask: build.mutation<BaseResponse<{ item: DomainTask }>, { todolistId: string; title: string }>({
@@ -276,6 +279,7 @@ export const tasksApi = baseApi.injectEndpoints({
           body: model,
         }
       },
+
       async onQueryStarted({ todolistId, taskId, model }, { dispatch, queryFulfilled, getState }) {
         const cachedArgsForQuery = tasksApi.util.selectCachedArgsForQuery(getState(), "getTasks")
 
