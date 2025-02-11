@@ -1,5 +1,6 @@
 {
   "name": "1-lesson",
+  "homepage": "http://farabek.github.io/2-todolist",
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
@@ -35,6 +36,8 @@
     "web-vitals": "^3.5.1"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
