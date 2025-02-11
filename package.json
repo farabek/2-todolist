@@ -1,6 +1,6 @@
 {
   "name": "2-todolist",
-  "homepage": "https://farabek.github.io/2-todolist/",
+  "homepage": "https://farabek.github.io/2-todolist",
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
